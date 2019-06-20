@@ -1,0 +1,91 @@
+<div class="container">
+
+    <div class="searchflexcont">
+        <strong>Process: </strong>
+        {{input class = "form-control" type = "text" value= pname  }}
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span id="col">{{col}} </span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" {{action "setcol" "Id" }}>Id</a>
+                <a class="dropdown-item" href="#" {{action "setcol" "ProcessName" }}>Process Name</a>
+                <a class="dropdown-item" href="#" {{action "setcol" "Handles" }}>Handles</a>
+                <a class="dropdown-item" href="#" {{action "setcol" "VM" }}>VM</a>
+                <a class="dropdown-item" href="#" {{action "setcol" "WS" }}>WS</a>
+                <a class="dropdown-item" href="#" {{action "setcol" "PM" }}>PM</a>
+                <a class="dropdown-item" href="#" {{action "setcol" "CPU" }}>CPU</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span id="order"> {{order}} </span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#" {{action "setord" "ascending" }}>Ascending</a>
+                <a class="dropdown-item" href="#" {{action "setord" "descending" }}>Descending</a>
+
+            </div>
+        </div>
+
+
+
+        <button class="btn btn-success" onclick={{action "search" pname }}>Search</button>
+
+
+
+
+    </div>
+
+
+
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <th class="sortlink" onclick={{action "doneclick" "Id" pname}}>ID</th>
+            <th class="sortlink" onclick={{action "doneclick" "ProcessName" pname }}>Process Name</th>
+            <th class="sortlink" onclick={{action "doneclick" "Handles" pname }}>Handles</th>
+            <th class="sortlink" onclick={{action "doneclick" "VM" pname }}>VM</th>
+            <th class="sortlink" onclick={{action "doneclick" "WS" pname }}>WS</th>
+            <th class="sortlink" onclick={{action "doneclick" "PM" pname }}>PM</th>
+            <th class="sortlink" onclick={{action "doneclick" "NPM" pname }}>NPM</th>
+            <th class="sortlink" onclick={{action "doneclick" "CPU" pname }}>CPU</th>
+        </thead>
+
+
+
+        <tbody>
+            {{#each arrayOfProc1 as |dataobj|}}
+            <tr>
+                <td>{{dataobj.id}}</td>
+                <td>{{dataobj.ProcessName}}</td>
+                <td>{{dataobj.handles}}</td>
+                <td>{{dataobj.vm}}</td>
+                <td>{{dataobj.ws}}</td>
+                <td>{{dataobj.pm}}</td>
+                <td>{{dataobj.npm}}</td>
+                <td>{{dataobj.cpu}}</td>
+                <button class="btn btn-info" onclick={{action "moreinfo" dataobj.id }}>Get More info</button>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+{{!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script> --}}

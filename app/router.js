@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('remoteproc');
+  this.route('allrec');
+  this.route('gbutton');
 });
 
 export default Router;

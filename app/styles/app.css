@@ -1,0 +1,18 @@
+.searchflexcont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px;
+}
+.form-control {
+  width: 50%;
+}
+
+.sortlink {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+strong {
+  font-size: 25px;
+}
